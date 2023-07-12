@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import { menuItems } from '../../constants';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useLocation } from 'react-router-dom'
+
 import cx from 'classnames';
 
 const Header = ({ title = 'PropertyMate', navigation = menuItems }) => {
-  const [currentPage, setCurrentPage] = useState(navigation[0]);
+  const [currentPage, setCurrentPage] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation()
+  
+  useEffect(()=>{
+    const currentNav = navigation.find(nav => nav.route === pathname)
+    if(currentNav) setCurrentPage(currentNav)
+  },[pathname, navigation])
 
   const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen);

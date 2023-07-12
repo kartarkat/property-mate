@@ -4,17 +4,11 @@ import Header from '../Header'
 import styles from './Layout.module.scss'
 import { Outlet } from 'react-router-dom';
 
-
-
-const Layout = ({ children }) => {
+const Layout = ({outlet}) => {
     return (
         <div className={styles.container}>
             <Header />
-            <main>
-                {/* {children} */}
-                <Outlet />
-
-                </main>
+            <main>{outlet ? outlet : <Outlet />}</main>
             <Footer />
         </div>
     )

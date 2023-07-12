@@ -1,4 +1,30 @@
-.container{
-    position: absolute;
+@import '../../styles/global.scss';
+
+.container {
+    @include flexRow(flex-start, space-around);
     bottom: 0;
+    width: 100vw;
+    // min-height: 20vh;
+    padding:50px;
+    min-height: 250px;
+    color: $footerText;
+    background-color: $primaryColor ;
+
+    .aboutPage {
+        min-width: 200px;
+        max-width: 25%;
+    }
+
+    .menu {
+        min-width: 175px;
+        .menuItems {
+            @include flexCol(flex-start, center);
+        }
+    }
+
+    @media only screen and (max-width: 786px)  {
+        @include flexRow(flex-start, space-around);
+        flex-wrap: wrap;
+        gap: 30px;
+    }
 }
