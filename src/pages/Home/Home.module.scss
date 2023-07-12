@@ -1,0 +1,30 @@
+@import '../../styles/global.scss';
+
+.container{
+    @include flexCol();
+    position: relative;
+
+    .sectionOne{
+        background-image: url('../../assets/homeBg.svg');
+        width: 100%;
+        height: auto;
+        min-height: 50vh;
+        background-size: cover;
+    }
+
+    .sectionTwo{
+        width: 100%;
+        background-color: #FFEDE7;
+        min-height: 20vh;
+    }
+
+    .sectionThree{
+        width: 80%;
+        position: absolute;
+        bottom: 130px;
+        color: $baseColor;
+        background-color: $primaryColor;
+        min-height: 15vh;
+        border-radius: 5px;
+    }
+}
