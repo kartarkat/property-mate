@@ -51,10 +51,10 @@ const Footer = () => {
     return (
       <div className={styles.aboutPage}>
         <div className={styles.heading}>
-          {heading.map(data => <span>{data}</span>)}
+          {heading.map((data, ind) => <span key={ind}>{data}</span>)}
         </div>
-        <div className={styles.content}>{content.map(data => <div>{data}</div>)}</div>
-        <div className={styles.socialMedia}>{socialIcons.map(icon => icon)}</div>
+        <div className={styles.content}>{content.map((data, ind) => <div key={ind}>{data}</div>)}</div>
+        <div className={styles.socialMedia}>{socialIcons.map((icon, ind) => <span key={ind}>{icon}</span>)}</div>
       </div>
     )
   }

@@ -64,10 +64,10 @@ const Header = ({ navigation = menuItems }) => {
     return (
       <div className={styles.sectionOne}>
         <h1 className={styles.title}>
-          {title.map(data => <span>{data}</span>)}
+          {title.map((data, ind) => <span key={ind}>{data}</span>)}
         </h1>
         <div className={styles.options}>
-          {options.map(data => <div><span>{data}</span><PlayArrowIcon /></div>)}
+          {options.map((data, ind) => <div key={ind}><span>{data}</span><PlayArrowIcon /></div>)}
         </div>
       </div>
     )

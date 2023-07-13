@@ -5,7 +5,6 @@ import styles from './ErrorPage.module.scss'
 function ErrorPage() {
   const error = useRouteError()
   const { status, statusText, data } = error
-  console.log(error)
   return (
     <div className={styles.errorPage}>
       <h1>Oops !</h1>
