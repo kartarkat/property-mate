@@ -5,21 +5,27 @@ import { menuItems } from '../../constants';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useLocation } from 'react-router-dom'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import cx from 'classnames';
 
-const Header = ({ title = 'PropertyMate', navigation = menuItems }) => {
+const headerData = {
+  title: ['Property', 'Mate'],
+  options: ['Rent', 'Buy', 'Sell']
+}
+
+const Header = ({ navigation = menuItems }) => {
   const [currentPage, setCurrentPage] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { pathname } = useLocation()
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     const currentNav = navigation.find(nav => nav.route === pathname)
-    if(currentNav) setCurrentPage(currentNav)
-  },[pathname, navigation])
+    if (currentNav) setCurrentPage(currentNav)
+  }, [pathname, navigation])
 
   const toggleMenu = () => {
-      setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const handleNavigationClick = (nav) => {
@@ -54,13 +60,14 @@ const Header = ({ title = 'PropertyMate', navigation = menuItems }) => {
   }
 
   const renderTitle = () => {
+    const { title, options } = headerData
     return (
       <div className={styles.sectionOne}>
-        <h1 className={cx(styles.title, styles.property)}>{title}</h1>
+        <h1 className={styles.title}>
+          {title.map(data => <span>{data}</span>)}
+        </h1>
         <div className={styles.options}>
-          <p>Rent</p>
-          <p>Buy</p>
-          <p>Sell</p>
+          {options.map(data => <div><span>{data}</span><PlayArrowIcon /></div>)}
         </div>
       </div>
     )

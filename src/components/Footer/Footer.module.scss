@@ -4,27 +4,123 @@
     @include flexRow(flex-start, space-around);
     bottom: 0;
     width: 100vw;
-    // min-height: 20vh;
-    padding:50px;
+    padding: 50px;
     min-height: 250px;
     color: $footerText;
     background-color: $primaryColor ;
+    @include content;
+
 
     .aboutPage {
-        min-width: 200px;
-        max-width: 25%;
+        @include flexCol(flex-start, center);
+        gap: 15px;
+        width: 200px;
+        // max-width: 25%;
+
+        .heading {
+            @include heading;
+            padding: 10px 0;
+            color: $baseColor;
+
+            :last-child {
+                color: $secondaryColor;
+            }
+        }
+
+        .socialMedia {
+            @include flexRow();
+            gap: 15px;
+            cursor: pointer;
+
+            :hover {
+                color: $secondaryColor;
+            }
+        }
     }
 
     .menu {
         min-width: 175px;
+
+        .subheading {
+            @include subHeading;
+            padding: 10px 0;
+            color: $baseColor;
+        }
+
         .menuItems {
-            @include flexCol(flex-start, center);
+            @include flexCol(flex-start);
+            gap: 15px;
+
+            :hover {
+                color: $secondaryColor;
+            }
+
+            :first-child {
+                padding-top: 10px;
+            }
         }
     }
 
-    @media only screen and (max-width: 786px)  {
-        @include flexRow(flex-start, space-around);
+    .newsLetter {
+        .label {
+            @include subHeading;
+            padding: 10px 0;
+            color: $baseColor;
+        }
+
+        .emailContainer {
+            @include flexRow();
+            gap: 10px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            background-color: rgb(198 198 198);
+
+            input {
+                background: transparent;
+                border: none;
+                color: black;
+                padding: 5px;
+                outline: none;
+            }
+
+
+            svg {
+                font-size: 14px;
+                transform: rotate(-45deg);
+                color: $secondaryColor;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 950px) {
+        @include flexRow(flex-start, flex-start);
         flex-wrap: wrap;
         gap: 30px;
+        width: 100%;
+
+        .menu{
+            .menuItems{
+                @include flexRow(flex-start, flex-start);
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                :first-child {
+                    padding: 0;
+                }
+            }
+        }
+
+        > div:not(.newsLetter) {
+            width: 45%;
+            
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+
+        > div:not(.newsLetter) {
+            width: 90%;
+        }
     }
 }
