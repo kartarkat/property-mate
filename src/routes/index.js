@@ -15,11 +15,9 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="/featured" element={<div>okkok</div>} />
       <Route path="/contactUs" element={<ContactUs />} />
-      {/* <Route path="*" element={<div>ok error is here</div>} /> */}
     </Route>
   )
 );
-
 
 const MyRoutes = () => <RouterProvider router={router} />
 
