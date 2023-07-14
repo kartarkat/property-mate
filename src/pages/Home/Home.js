@@ -10,8 +10,13 @@ const Home = () => {
                 <div className={styles.heading}>The best deals, for both Realtors and Customers.</div>
                 <div className={styles.subHeading}><span>Explore More </span><ArrowForwardIcon /></div>
             </div>
-            <div className={styles.sectionTwo}>test 2 data</div>
-            <div className={styles.sectionThree}>test data</div>
+            <div className={styles.sectionTwo}>
+                <div className="heading">How It Works</div>
+            </div>
+            <div className={styles.sectionThree}>
+                <div className="heading">What Do you need?</div>
+
+            </div>
 
         </div>
     )

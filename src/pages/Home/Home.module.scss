@@ -8,12 +8,11 @@
         background-image: url('../../assets/homeBg.jpg');
         width: 100%;
         height: auto;
-        min-height: 50vh;
+        min-height: 60vh;
         background-size: cover;
         @include flexCol(flex-start, center);
-        padding: 1rem;
-        padding-left: 5rem;
-        gap: 1.5rem;
+        padding: 2% 2% 10% 10%;
+        gap: 1rem;
         color: $primaryColor;
 
         .title {
@@ -38,15 +37,22 @@
         width: 100%;
         background-color: #FFEDE7;
         min-height: 20vh;
+        padding-top: 3.5rem;
     }
 
     .sectionThree {
         width: 80%;
         position: absolute;
-        bottom: 130px;
+        bottom: 10rem;
         color: $baseColor;
         background-color: $primaryColor;
         min-height: 15vh;
         border-radius: 5px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .sectionThree {
+            bottom: 6.5rem;
+        }
     }
 }
