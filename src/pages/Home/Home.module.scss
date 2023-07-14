@@ -1,24 +1,46 @@
 @import '../../styles/global.scss';
 
-.container{
+.container {
     @include flexCol();
     position: relative;
 
-    .sectionOne{
-        background-image: url('../../assets/homeBg.svg');
+    .sectionOne {
+        background-image: url('../../assets/homeBg.jpg');
         width: 100%;
         height: auto;
         min-height: 50vh;
         background-size: cover;
+        @include flexCol(flex-start, center);
+        padding: 1rem;
+        padding-left: 5rem;
+        gap: 1.5rem;
+        color: $primaryColor;
+
+        .title {
+            @include heading;
+            font-size: 3rem;
+        }
+
+        .heading {
+            @include heading;
+        }
+
+        .subHeading {
+            @include flexRow(center, center);
+            gap: 5px;
+            @include subHeading;
+            color: $secondaryColor;
+            cursor: pointer;
+        }
     }
 
-    .sectionTwo{
+    .sectionTwo {
         width: 100%;
         background-color: #FFEDE7;
         min-height: 20vh;
     }
 
-    .sectionThree{
+    .sectionThree {
         width: 80%;
         position: absolute;
         bottom: 130px;
