@@ -2,7 +2,7 @@ export const menuItems = [
     { id: 'home', route: '/', label: 'Home' },
     { id: 'featured', route: '/featured', label: 'Featured' },
     {
-        id: 'holidayPackages', route: '/holidayPackages', label: 'Holiday Packages',
+        id: 'packages', route: '/packages', label: 'Packages',
         submenu: [
             { id: 'india', route: '/india', label: 'India' },
             { id: 'paris', route: '/paris', label: 'Paris' },

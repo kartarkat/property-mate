@@ -3,9 +3,12 @@ import HouseIcon from '@mui/icons-material/House';
 import VillaIcon from '@mui/icons-material/Villa';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PersonIcon from '@mui/icons-material/Person';
 import WifiIcon from '@mui/icons-material/Wifi';
 import { images } from '../../assets/images';
+import styles from './Featured.module.scss'
+import cx from 'classnames'
 
 const tabConfig = [
     { label: 'House', id: 'house', icon: <HouseIcon /> },
@@ -72,40 +75,50 @@ const houseConfig = [
 
 const Featured = () => {
 
-    const renderTab = (data) => {
+    const renderTab = (data, index) => {
         const { label, id, icon } = data
-        return (<div key={id}>{icon} <span>{label}</span></div>)
+        return (<div className={cx(styles.tab, index === 0 ? styles.activeTab : '')} key={id}>{icon} <span>{label}</span></div>)
     }
 
-    const renderBuilding = (data) => {
+    const renderBuilding = (data, index) => {
         const { label, id, price, imgSrc, bedroom, interest } = data
         return (
-            <div className="building">
+            <div className={cx(styles.building, index === 2 ? styles.activeBuilding : '')}>
                 <img src={imgSrc} alt={id} />
-                <div className="details">
-                    <span>{label}</span>
-                    <span><PersonIcon />{bedroom} bedroom <WifiIcon /> wifi</span>
+                <div className={styles.details}>
+                    <div className={styles.label}>{label}</div>
+                    <div className={styles.otherDetails}>
+                        <div className={styles.sectionOne}>
+                            <div><PersonIcon /></div>
+                            <div>{bedroom} bedroom</div>
+                        </div>
+                        <div className={styles.sectionOne}>
+                            <div><WifiIcon /></div>
+                            <div>wifi</div>
+
+                        </div>
+                    </div>
                 </div>
-                <div className="price">{price}</div>
-                <div className="interest">
-                    {interest}have interest in this property
+                <div className={styles.price}><span>₹</span>{price} <span>/annum</span></div>
+                <div className={styles.interest}>
+                    {interest} have interest in this property
                 </div>
-                <button>view more</button>
+                <button className={styles.viewMore}><span>view more →</span></button>
             </div>
         )
-
     }
+
     return (
-        <div>
-            <div className="header">
-                <div className="title">Featured Houses</div>
-                <div className="tabs">{tabConfig.map(renderTab)}</div>
-                <div className="scrollBtns">
-                    <KeyboardArrowLeftIcon />
-                    <KeyboardArrowLeftIcon />
+        <div className={styles.container}>
+            <div className={styles.header}>
+                <div className={styles.title}><span>Featured </span>Houses</div>
+                <div className={styles.tabs}>{tabConfig.map(renderTab)}</div>
+                <div className={styles.scrollButtons}>
+                    <KeyboardArrowLeftIcon className={styles.right} />
+                    <KeyboardArrowLeftIcon className={cx(styles.left, styles.activeArrow)} />
                 </div>
             </div>
-            <div className="houses">
+            <div className={styles.houses}>
                 {houseConfig.map(renderBuilding)}
             </div>
 

@@ -45,7 +45,7 @@
     }
 
     // Media Queries
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 800px) {
       .sectionTwo {
         display: none;
       }
@@ -103,7 +103,7 @@
       display: none;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 800px) {
       @include flexCol(flex-start, flex-start);
       position: absolute;
       background-color: #ccc;
