@@ -30,10 +30,12 @@
         .socialMedia {
             @include flexRow();
             gap: 15px;
-            cursor: pointer;
-
-            :hover {
-                color: $secondaryColor;
+            
+            span{
+                cursor: pointer; 
+                :hover {
+                    color: $secondaryColor;
+                }
             }
         }
     }
