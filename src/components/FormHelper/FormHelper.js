@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './FormHelper.module.scss';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const FormHelper = ({ config = [], onSubmit, submitConfig = {}, layout }) => {
+const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) => {
     const [formData, setFormData] = useState({});
     const [formErrors, setFormErrors] = useState({});
     const { label = 'Search PropertyMate', btnStyles = {} } = submitConfig
@@ -89,8 +89,7 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, layout }) => {
     return (
         <div className={styles.container} >
             <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.fieldsContainer}
-                    style={{ flexDirection: layout === 'vertical' ? 'column' : 'row' }}>
+                <div className={styles.fieldsContainer} style={formStyles}>
                     {config.map(renderFields)}
                 </div>
                 <button type="submit" className={styles.submitButton} style={btnStyles}>

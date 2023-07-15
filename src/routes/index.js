@@ -9,6 +9,7 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import Home from "../pages/Home/Home";
 import Layout from "../components/Layout/Layout";
 import Featured from "../pages/Featured/Featured";
+import ComingSoonPage from "../components/ComingSoonPage/ComingSoonPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,8 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="/featured" element={<Featured />} />
       <Route path="/contactUs" element={<ContactUs />} />
+      <Route path="/packages" element={<ComingSoonPage />} />
+
     </Route>
   )
 );

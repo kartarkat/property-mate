@@ -15,18 +15,21 @@
                 padding: 10px;
                 @include content;
 
-                select {
+                select, input {
                     min-width: 20vw;
                     background-color: $baseColor;
                     padding: 10px;
                     border-radius: 10px;
                     color: black;
                     border: none;
+                    outline: none;
                     -moz-appearance: none;
-                    /* Firefox */
                     -webkit-appearance: none;
-                    /* Safari and Chrome */
                     appearance: none;
+                }
+
+                input{
+                    background-color: #ccc;
                 }
 
                 .error {
