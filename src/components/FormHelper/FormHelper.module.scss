@@ -3,7 +3,6 @@
 .container {
 
     .form {
-
         position: relative;
 
         .fieldsContainer {
@@ -45,7 +44,6 @@
                     }
                 }
             }
-
         }
 
         .submitButton {
@@ -60,7 +58,7 @@
             position: absolute;
             bottom: 0;
             right: 1rem;
-            bottom: -3rem;
+            bottom: -2rem;
 
             &:hover {
                 opacity: 0.8;
