@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styles from './FormHelper.module.scss';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const FormHelper = ({ config = [], onSubmit, submitButtonStyle, layout }) => {
+const FormHelper = ({ config = [], onSubmit, submitConfig = {}, layout }) => {
     const [formData, setFormData] = useState({});
     const [formErrors, setFormErrors] = useState({});
+    const { label = 'Search PropertyMate', btnStyles = {} } = submitConfig
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,15 +30,6 @@ const FormHelper = ({ config = [], onSubmit, submitButtonStyle, layout }) => {
         } else {
             onSubmit(formData);
         }
-    };
-
-    const renderSubmitButton = () => {
-        const buttonStyle = submitButtonStyle || {};
-        return (
-            <button type="submit" className={styles.submitButton} style={buttonStyle}>
-                Submit
-            </button>
-        );
     };
 
     const renderFields = (field, index) => {
@@ -86,22 +79,23 @@ const FormHelper = ({ config = [], onSubmit, submitButtonStyle, layout }) => {
 
         return (
             <div key={index} className={styles.field}>
-                    <label htmlFor={inputId} className={styles.label}>{label}</label>
-                    {renderInputField()}
-                    {formErrors[name] && <p className={styles.error}>{formErrors[name]}</p>}
+                <label htmlFor={inputId} className={styles.label}>{label}</label>
+                {renderInputField()}
+                {<div className={styles.error}>{formErrors[name] ? formErrors[name]  : ''}</div>}
             </div>
         );
     };
 
     return (
         <div className={styles.container} >
-            <form className={styles.form}
-                onSubmit={handleSubmit}>
-                <div className={styles.fieldsContainer} 
-                style={{ flexDirection: layout === 'vertical' ? 'column' : 'row' }}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={styles.fieldsContainer}
+                    style={{ flexDirection: layout === 'vertical' ? 'column' : 'row' }}>
                     {config.map(renderFields)}
                 </div>
-                {renderSubmitButton()}
+                <button type="submit" className={styles.submitButton} style={btnStyles}>
+                    <span>{label}</span><ArrowForwardIcon />
+                </button>
             </form>
         </div>
     );

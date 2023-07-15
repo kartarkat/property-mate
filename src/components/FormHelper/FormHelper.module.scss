@@ -4,6 +4,8 @@
 
     .form {
 
+        position: relative;
+
         .fieldsContainer {
             @include flexRow();
             flex-wrap: wrap;
@@ -12,47 +14,57 @@
                 @include flexCol(flex-start, flex-start);
                 gap: 5px;
                 padding: 10px;
+                @include content;
 
-                .label{
-                    @include content;
-                }
-
-                select{
+                select {
                     min-width: 20vw;
                     background-color: $baseColor;
                     padding: 10px;
                     border-radius: 10px;
                     color: black;
                     border: none;
-                    -moz-appearance:none; /* Firefox */
-                    -webkit-appearance:none; /* Safari and Chrome */
-                    appearance:none;
+                    -moz-appearance: none;
+                    /* Firefox */
+                    -webkit-appearance: none;
+                    /* Safari and Chrome */
+                    appearance: none;
+                }
+
+                .error {
+                    min-height: 20px;
+                    color: $secondaryColor ;
                 }
             }
 
             @media only screen and (max-width: 600px) {
                 flex-direction: column !important;
 
-                .field{
-                    select{
+                .field {
+                    select {
                         min-width: 45vw;
                     }
                 }
             }
 
         }
-    }
-}
 
-.submitButton {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
+        .submitButton {
+            @include flexRow();
+            @include content;
+            border: none;
+            cursor: pointer;
+            color: $baseColor;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            background-color: $secondaryColor;
+            position: absolute;
+            bottom: 0;
+            right: 1rem;
+            bottom: -3rem;
 
-    &:hover {
-        background-color: #0056b3;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
     }
 }
