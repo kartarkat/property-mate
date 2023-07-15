@@ -46,10 +46,12 @@
         .steps {
             @include flexRow(center, space-around);
             gap: 25px;
+            padding: 1rem;
 
             .process {
                 @include flexRow();
-                max-width: 30%;
+                min-height: 15vh;
+                min-width: 25%;
                 gap: 25px;
 
                 .subSection {
@@ -66,13 +68,6 @@
                 padding: 2rem;
                 @include flexCol(flex-start, center);
                 gap: 25px;
-
-
-                .process {
-                    gap: 25px;
-                    max-width: 80%;
-
-                }
 
                 svg {
                     margin-left: 10px;
@@ -95,7 +90,7 @@
         .banner {
             width: 80%;
             position: absolute;
-            bottom: 8rem;
+            bottom: 3rem;
             color: $baseColor;
             background-color: $primaryColor;
             min-height: 15vh;
@@ -115,7 +110,7 @@
         }
 
         @media only screen and (max-width: 600px) and (max-height: 750px) {
-            min-height: 60vh;
+            min-height: 50vh;
         }
 
         @media only screen and (min-width: 800px) and (max-height: 700px) {
