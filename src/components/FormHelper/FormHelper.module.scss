@@ -1,0 +1,58 @@
+@import '../../styles/global.scss';
+
+.container {
+
+    .form {
+
+        .fieldsContainer {
+            @include flexRow();
+            flex-wrap: wrap;
+
+            .field {
+                @include flexCol(flex-start, flex-start);
+                gap: 5px;
+                padding: 10px;
+
+                .label{
+                    @include content;
+                }
+
+                select{
+                    min-width: 20vw;
+                    background-color: $baseColor;
+                    padding: 10px;
+                    border-radius: 10px;
+                    color: black;
+                    border: none;
+                    -moz-appearance:none; /* Firefox */
+                    -webkit-appearance:none; /* Safari and Chrome */
+                    appearance:none;
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                flex-direction: column !important;
+
+                .field{
+                    select{
+                        min-width: 45vw;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.submitButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
