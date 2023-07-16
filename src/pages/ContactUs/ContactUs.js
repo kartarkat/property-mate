@@ -75,7 +75,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-
-{/* <Toaster type="success" title="Top Center Toast" message="This is a top center positioned toaster" position="top-center" />
-<Toaster type="error" title="Top Center Toast" message="This is a top center positioned toaster" position="bottom-center" /> */}

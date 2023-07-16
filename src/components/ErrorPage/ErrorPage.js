@@ -10,9 +10,7 @@ function ErrorPage() {
       <h1>Oops !</h1>
       <i>{status} : {statusText}</i>
       <div>{data}</div>
-      <button>
-        <Link to={'/'}>Go back to Home</Link>
-      </button>
+      <button className={styles.button}><Link to={'/'}>Go to Home</Link></button>
     </div>
   )
 }

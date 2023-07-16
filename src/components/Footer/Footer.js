@@ -18,7 +18,7 @@ const companyMenu = {
   menus: [
     { label: 'About us', route: '/' },
     { label: 'Blog', route: '/' },
-    { label: 'Contact us', route: '/contact-us' },
+    { label: 'Contact us', route: '/contactUs' },
     { label: 'Pricing', route: '/' },
     { label: 'Testimonials', route: '/' },
   ]
@@ -29,7 +29,7 @@ const supportMenu = {
   menus: [
     { label: 'Help Center', route: '/' },
     { label: 'Terms of service', route: '/' },
-    { label: 'Legal', route: '/contact-us' },
+    { label: 'Legal', route: '/' },
     { label: 'Privacy policy', route: '/' },
     { label: 'Status', route: '/' },
   ]

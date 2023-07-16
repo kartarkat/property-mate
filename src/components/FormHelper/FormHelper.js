@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styles from './FormHelper.module.scss';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Toaster from '../Toaster/Toaster';
 
 const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) => {
     const [formData, setFormData] = useState({});
     const [formErrors, setFormErrors] = useState({});
+    const [showToaster, setShowToaster] = useState(false)
     const { label = 'Search PropertyMate', btnStyles = {} } = submitConfig
 
     const handleChange = (e) => {
@@ -29,6 +31,8 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) =>
             setFormErrors(errors);
         } else {
             onSubmit(formData);
+            setShowToaster(prev => !prev)
+            setFormData(config)
         }
     };
 
@@ -43,7 +47,6 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) =>
                     name={name}
                     value={formData[name] || ''}
                     onChange={handleChange}
-                    defaultValue={''}
                 >
                     <option value="" disabled hidden>
                         Select {label}
@@ -81,7 +84,7 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) =>
             <div key={index} className={styles.field}>
                 <label htmlFor={inputId} className={styles.label}>{label}</label>
                 {renderInputField()}
-                {<div className={styles.error}>{formErrors[name] ? formErrors[name]  : ''}</div>}
+                {<div className={styles.error}>{formErrors[name] ? formErrors[name] : ''}</div>}
             </div>
         );
     };
@@ -96,6 +99,14 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) =>
                     <span>{label}</span><ArrowForwardIcon />
                 </button>
             </form>
+            {showToaster ?
+                <Toaster type="success"
+                    title="Form submitted successfully"
+                    message="Thanks for using our site. (Handle form submission)"
+                    position="top-center"
+                    duration={5000}
+                /> : ''
+            }
         </div>
     );
 };

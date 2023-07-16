@@ -61,7 +61,7 @@ const Home = () => {
     const renderProcess = (data, index) => {
         const { imgSrc, subHeading, content } = data
         return (
-            <>
+            <div key={index} >
                 <div key={index} className={styles.process}>
                     <img src={imgSrc} alt={subHeading} />
                     <div className={styles.subSection}>
@@ -70,7 +70,7 @@ const Home = () => {
                     </div>
                 </div>
                 {processConfig.length !== index + 1 ? <ArrowForwardIcon /> : ''}
-            </>
+            </div>
         )
 
     }

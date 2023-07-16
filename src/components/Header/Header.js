@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import cx from 'classnames';
+import Toaster from '../Toaster/Toaster';
 
 const headerData = {
   title: ['Property', 'Mate'],
@@ -17,6 +18,7 @@ const headerData = {
 const Header = ({ navigation = menuItems }) => {
   const [currentPage, setCurrentPage] = useState({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [toaster, setToaster] = useState(false)
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -53,9 +55,9 @@ const Header = ({ navigation = menuItems }) => {
   const renderButtons = () => {
     return (
       <div className={styles.sectionThree}>
-        <button>Login in</button>
+        <button onClick={() => setToaster(prev => !prev)}>Login in</button>
         <span></span>
-        <button className={styles.signUp}>Sign up</button>
+        <button onClick={() => setToaster(prev => !prev)} className={styles.signUp}>Sign up</button>
       </div>)
   }
 
@@ -84,6 +86,7 @@ const Header = ({ navigation = menuItems }) => {
   };
 
   return (
+    <>
     <header>
       <div className={styles.container}>
         <div className={styles.header}>
@@ -95,6 +98,13 @@ const Header = ({ navigation = menuItems }) => {
         {isMenuOpen ? renderMobileMenu() : ''}
       </div>
     </header >
+    {toaster ? <Toaster type="error"
+                    title="Oops - Building this!"
+                    message="This functionality is not built yet, coming soon."
+                    position="top-center"
+                    duration={3000}
+                /> : ''}
+    </>
   );
 };
 

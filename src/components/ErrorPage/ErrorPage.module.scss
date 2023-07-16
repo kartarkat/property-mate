@@ -1,7 +1,30 @@
-.errorPage{
+@import '../../styles/global.scss';
+
+.errorPage {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    min-height: 70vh;
     flex-direction: column;
+    gap: 20px;
+
+    i{
+        font-size: 2rem;
+    }
+
+    .button {
+        margin-top: 20px;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        color: #fff;
+        background-color: $secondaryColor;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $primaryColor;
+        }
+    }
 }
