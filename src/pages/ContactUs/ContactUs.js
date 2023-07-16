@@ -45,7 +45,6 @@ const ContactUs = () => {
   };
 
   const formStyles = {
-    flexDirection: 'column',
     alignItems: 'flex-start',
   }
 
