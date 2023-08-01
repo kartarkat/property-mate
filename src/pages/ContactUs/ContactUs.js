@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ContactUs.module.scss';
-import FormHelper from '../../components/FormHelper/FormHelper';
+import FormHelper from '../../components/FormHelper';
 // import FormHelper from './FormHelper';
 
 

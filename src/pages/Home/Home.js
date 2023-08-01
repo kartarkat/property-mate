@@ -61,7 +61,7 @@ const Home = () => {
     const renderProcess = (data, index) => {
         const { imgSrc, subHeading, content } = data
         return (
-            <div key={index} >
+            <div key={index} className={styles.processContainer}>
                 <div key={index} className={styles.process}>
                     <img src={imgSrc} alt={subHeading} />
                     <div className={styles.subSection}>

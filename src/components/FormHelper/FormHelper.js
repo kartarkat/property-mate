@@ -34,6 +34,11 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) =>
             setShowToaster(prev => !prev)
             setFormData(config)
         }
+
+        // Reset the toaster after a delay (5000 milliseconds)
+        setTimeout(() => {
+            setShowToaster(false);
+        }, 5000);
     };
 
     const renderFields = (field, index) => {
@@ -102,7 +107,7 @@ const FormHelper = ({ config = [], onSubmit, submitConfig = {}, formStyles }) =>
             {showToaster ?
                 <Toaster type="success"
                     title="Form submitted successfully"
-                    message="Thanks for using our site. (Handle form submission)"
+                    message="This feature is coming soon."
                     position="top-center"
                     duration={5000}
                 /> : ''

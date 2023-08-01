@@ -30,9 +30,10 @@
         .socialMedia {
             @include flexRow();
             gap: 15px;
-            
-            span{
-                cursor: pointer; 
+
+            span {
+                cursor: pointer;
+
                 :hover {
                     color: $secondaryColor;
                 }
@@ -78,6 +79,12 @@
             margin-top: 10px;
             background-color: rgb(198 198 198);
 
+            button {
+                background: none;
+                border: none;
+            }
+
+
             input {
                 background: transparent;
                 border: none;
@@ -102,8 +109,8 @@
         gap: 30px;
         width: 100%;
 
-        .menu{
-            .menuItems{
+        .menu {
+            .menuItems {
                 @include flexRow(flex-start, flex-start);
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -114,15 +121,15 @@
             }
         }
 
-        > div:not(.newsLetter) {
+        >div:not(.newsLetter) {
             width: 45%;
-            
+
         }
     }
 
     @media only screen and (max-width: 600px) {
 
-        > div:not(.newsLetter) {
+        >div:not(.newsLetter) {
             width: 90%;
         }
     }

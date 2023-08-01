@@ -21,11 +21,14 @@ const Toaster = ({ type, title, message, duration = 3000, position = 'bottom-rig
   }
 
   return ReactDOM.createPortal(
-    <div className={`${styles.toaster} ${styles[type]} ${styles[position]}`}>
-      <div className={styles.content}>
+    <div className={`${styles.toaster} ${styles[position]}`}>
+      <div className={`${styles.content} ${styles[type]}`}>
         <div className={styles.title}>{title}</div>
         <div className={styles.message}>{message}</div>
       </div>
+      <button className={styles.closeButton} onClick={() => setIsVisible(false)}>
+        &#x2715;
+      </button>
     </div>,
     document.body
   );

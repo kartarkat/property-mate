@@ -48,26 +48,37 @@
             gap: 25px;
             padding: 1rem;
 
-            .process {
+            .processContainer {
                 @include flexRow();
                 min-height: 15vh;
                 min-width: 25%;
                 gap: 25px;
 
-                .subSection {
-                    @include flexCol(flex-start, center);
-                    gap: 10px;
+                .process {
+                    @include flexRow();
+                    gap: 15px;
 
-                    .subHeading {
-                        @include subHeading;
+                    .subSection {
+                        @include flexCol(flex-start, center);
+                        gap: 10px;
+
+                        .subHeading {
+                            @include subHeading;
+                        }
                     }
                 }
             }
+
 
             @media only screen and (max-width: 900px) {
                 padding: 2rem;
                 @include flexCol(flex-start, center);
                 gap: 25px;
+
+                .processContainer {
+                    align-items: flex-start;
+                    flex-direction: column;
+                }
 
                 svg {
                     margin-left: 10px;
@@ -85,11 +96,11 @@
         width: 100%;
         @include flexRow();
         position: relative;
+        padding: 3rem 0;
         min-height: 20vh;
 
         .banner {
             width: 80%;
-            position: absolute;
             bottom: 3rem;
             color: $baseColor;
             background-color: $primaryColor;
@@ -103,18 +114,6 @@
             }
 
 
-        }
-
-        @media only screen and (max-width: 600px) and (max-height: 950px) {
-            min-height: 40vh;
-        }
-
-        @media only screen and (max-width: 600px) and (max-height: 750px) {
-            min-height: 50vh;
-        }
-
-        @media only screen and (min-width: 800px) and (max-height: 700px) {
-            min-height: 30vh;
         }
 
     }
